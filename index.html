@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="calc-container"  >
+            <h2>Calcuradora de IMC</h2>
+            <form action="" id="form-imc">
+                <div class="input-form">
+                    <!-- altura -->
+                    <div action="" class="control">
+                        <label for="height">Altura:</label>
+                        <input type="text" id="height" placeholder="Exp: 1,70m">
+                    </div>
+                    <!-- peso -->
+                    <div action="" class="control">
+                        <label for="weight">Peso:</label>
+                        <input type="text" id="weight" placeholder="Exp: 60,5kg">
+                    </div>
+                </div>
+                <div class="control-action">
+                    <button id="btn-cal">Calcular</button>
+                    <button id="btn-clean">Limpar</button>
+
+                </div>
+            </form>
+        </div>
+        <!-- resultado -->
+        <div id="result" class="hide" >
+            <p id="number-imc">Seu IMC é : <span ></span></p>
+            <p id="info-imc">Sua codição é: <span ></span></p>
+            <h3>Classifições:</h3>
+            
+             <div id="table-imc">
+                <div class="table">
+                <h4>IMC</h4>
+                <h4>Classificação</h4>
+                <h4>Obesidade</h4>
+                </div>
+            </div> 
+        
+            <!-- voltar -->
+        <button id="back-btn">Voltar</button>   
+        </div>
+        
+    </div>
+</body>
+</html>
