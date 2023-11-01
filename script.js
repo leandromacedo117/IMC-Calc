@@ -44,6 +44,14 @@ const weightInput = document.querySelector("#weight");
 const heightInput = document.querySelector("#height");
 const calcBtn = document.querySelector("#btn-cal");
 
+// part two 
+const backBtn = document.querySelector("#back-btn")
+const numberSpan = document.querySelector("#number-imc")
+const infoSpan = document.querySelector("#info-imc")
+const hide = document.querySelector(".hide")
+const result = document.querySelector("#result")
+const calcContainer = document.getElementById("calc-container")
+
 // Functions
 function createTable(data) {
     data.forEach((item) => {
@@ -83,6 +91,10 @@ function createTable(data) {
     return IMC
   }
 
+  function hideResult(hide){
+    calcContainer.innerHTML
+  }
+
 // Inicialização
 createTable(data);
 // Events
@@ -105,9 +117,25 @@ calcBtn.addEventListener("click", (e) =>{
   
   if(!weight || !height)return;
   const IMC = CalcIMC(weight , height)
-  console.log(IMC)
+
+  let info 
+  data.forEach((item) => {
+    if( IMC >= item.min && IMC <= item.max){
+        info = item.info
+    }
+  });   
+console.log(info)
+
+  if(!info) return;
+
 })
 clearBtn.addEventListener("click", (limparInputs) =>{
     limparInputs.preventDefault();
     clearInputs();
+})
+
+
+
+backBtn.addEventListener("click" , (e) =>{
+    hide.innerHTML = hide.toggleAttribute
 })
