@@ -51,6 +51,7 @@
   const backBtn = document.querySelector("#back-btn")
   const numberSpan = document.querySelector("#number-imc span")
   const infoSpan = document.querySelector("#info-imc span")
+  let info 
  
  
 
@@ -81,8 +82,10 @@
     function clearInputs(){
       weightInput.value = "";
       heightInput.value = "";
-      numberSpan.value = "";
-      infoSpan.value = "";
+      numberSpan.value =""
+      infoSpan.value =""
+   
+     
     } 
 
     function valueDigits(text){
@@ -123,32 +126,92 @@
     if(!weight || !height)return;
     const IMC = CalcIMC(weight , height)
 
-    let info 
+
     data.forEach((item) => {
       if( IMC >= item.min && IMC <= item.max){
           info = item.info
       }
     });   
-  console.log(info)
 
     if(!info) return;
    
 
     numberSpan.innerText = IMC
     infoSpan.innerText = info
+    
+    console.log(info)
+
+// colors
+switch (info) {
+  case "Magreza":
+    numberSpan.classList.add("low");
+    infoSpan.classList.add("low");
+     
+    break;
+  case "Normal":
+    numberSpan.classList.add("good");
+    infoSpan.classList.add("good");
+    
+    break;
+  case "Sobrepeso":
+    numberSpan.classList.add("low");
+    infoSpan.classList.add("low");
+    
+    break;
+  case "Obesidade":
+    numberSpan.classList.add("medium");
+    infoSpan.classList.add("medium");
+    
+    break;
+  case "Obesidade grave":
+    numberSpan.classList.add("high");
+    infoSpan.classList.add("high");
+     
+    break;
+  
+}
+
+
     hideResult();
     
     
-  })
+  });
+
+  function removerClassSpan(){
+    numberSpan.classList.remove("low");
+    infoSpan.classList.remove("low");
+    
+ 
+    numberSpan.classList.remove("good");
+    infoSpan.classList.remove("good");
+   
+ 
+    numberSpan.classList.remove("low");
+    infoSpan.classList.remove("low");
+   
+  
+    numberSpan.classList.remove("medium");
+    infoSpan.classList.remove("medium");
+   
+
+    numberSpan.classList.remove("high");
+    infoSpan.classList.remove("high");
+  }
+
+
+
+  // Limpar Inputs
   clearBtn.addEventListener("click", (limparInputs) =>{
       limparInputs.preventDefault();
       clearInputs();
+     
   })
 
 
 
   backBtn.addEventListener("click" , (e) =>{
-    calcContainer.classList.toggle("hide")
-    result.classList.toggle("hide")
+    hideResult();
     clearInputs();
+    removerClassSpan();
+   
   })
